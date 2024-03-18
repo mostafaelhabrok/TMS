@@ -6,13 +6,13 @@ To get started, follow these steps:
 1. **Clone the repository:**
 
 ```
-git clone https://github.com/mostafaelhabrok/tms.git
+git clone https://github.com/mostafaelhabrok/TMS.git
 ```
 
 2. **Install dependencies:**
 
 ```
-cd tms
+cd TMS
 ```
 
 ```
