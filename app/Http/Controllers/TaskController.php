@@ -196,16 +196,16 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function addDependency(Request $request)
+    public function addDependency(Request $request,$task_id)
     {
-        $task_id = $request->input('task_id');
+        // $task_id = $request->input('task_id');
         $dependency_ids = $request->input('dependency_id');
 
         // Validate incoming request
         $validator = Validator::make($request->all(), [
-            'task_id' => 'required|integer|exists:tasks,id',
             'dependency_id' => 'required|array',
             'dependency_id.*' => [
+                'distinct',
                 'exists:tasks,id',
                 Rule::notIn([$task_id]), // make sure task id not in dependencies
             ]
@@ -217,6 +217,13 @@ class TaskController extends Controller
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
+        // Find task by id
+        $task = Task::find($task_id);
+
+        if (!$task) {
+            // Task not found
+            return TaskController::notFound();
+        }
 
         // Check if the reverse dependency already exists
         // can't have 1 depend on 2 and 2 depend on 1

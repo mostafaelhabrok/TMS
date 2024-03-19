@@ -304,7 +304,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "20|iFEC58KIWXqhXG0iZvNjtcydkpzUNqmbU5iI9Hn403042822",
+							"value": "1|Ra1qjh9M1P2euYOj50Frkbo8fn0toyk7xtfkmBqGf2207057",
 							"type": "string"
 						}
 					]
@@ -315,30 +315,19 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "task_id",
-							"value": "3",
+							"key": "dependency_id[]",
+							"value": "4",
 							"type": "text"
 						},
 						{
 							"key": "dependency_id[]",
 							"value": "5",
 							"type": "text"
-						},
-						{
-							"key": "dependency_id[]",
-							"value": "6",
-							"type": "text"
-						},
-						{
-							"key": "dependency_id[]",
-							"value": "",
-							"type": "text",
-							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/tasks/dependency",
+					"raw": "http://localhost:8000/api/tasks/3/dependency",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -347,6 +336,7 @@
 					"path": [
 						"api",
 						"tasks",
+						"3",
 						"dependency"
 					]
 				}

@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::middleware(['role:manager'])->group(function () {
             Route::post('/tasks', 'insert');                                        // create task
             Route::put('/tasks/{id}', 'update');                                    // update task
-            Route::post('/tasks/dependency', 'addDependency');                      // add task dependency
+            Route::post('/tasks/{id}/dependency', 'addDependency');                 // add task dependency
         });
 
         Route::get('/task_not_found',  'notFound')->name('notFound');
@@ -53,7 +53,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/unauthorized',  'unauthorized')->name('unauthorized');             // show unauthorized message
 });
 
-Route::post('/users',[UserController::class, 'insert']);                             // create new user
+Route::post('/users',[UserController::class, 'insert']);                            // create new user
 
 
 
