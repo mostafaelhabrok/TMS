@@ -55,6 +55,33 @@ php artisan key:generate
 php artisan serve
 ```
 
+
+## Setting Up with Docker
+To setup with docker, follow these steps:
+
+1. **Clone the repository:**
+
+```
+git clone https://github.com/mostafaelhabrok/TMS.git
+```
+
+2. **Build the Docker Image:**
+
+```
+cd TMS
+```
+
+```
+docker-compose build
+```
+
+3. **Run the Docker Container:**
+
+```
+docker-compose up -d
+```
+
+
 ### Now the app is running on [localhost](http://localhost:8000).
 
 ## API Endpoint
